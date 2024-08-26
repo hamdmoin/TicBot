@@ -1,6 +1,9 @@
+from math import inf as infinity
+
 board = [[0,0,0],
          [0,0,0],
          [0,0,0]]
+
 def check_win(player,state):
     '''
     this funtion checks if a player whether Human (-1) or Computer (+1) has won 
@@ -36,7 +39,54 @@ def empty_cells(state):
     for x,i in enumerate(state):
         for y,j in enumerate(i):
             if j == 0:
-                empty_cells = empty_cells + [state[x][y]]
+                empty_cells = empty_cells + [[x,y]]
     return empty_cells
 
+def move(state,player,x,y):
+    state[x][y] = player
+
+def gameover(depth,state):
+    if depth == 0 or check_win(+1,state) or check_win(-1,state):
+        return True
+    else:
+        return False
+
+def minimax(state,player,depth):
+    if depth == 0 or gameover(depth,state):
+        if check_win(+1,state):
+            score = [-1,-1,1]
+            return score
+        elif check_win(-1,state):
+            score = [-1,-1,-1]
+            return score
+        else:
+            score = [-1,-1,0]
+            return score
+
+    if player == +1:
+        best = [-1,-1,-infinity]
+    else:
+        best = [-1,-1,+infinity]
+    
+    if player == +1:
+        for i in empty_cells(state):
+            state[i[0]][i[1]] = player
+            minimax(state,-1,depth-1)
+            score[0],score[1] = i[0],i[1]
+            if score[2] > best[2]:
+                best = score
+
+    else:
+        for i in empty_cells(state):
+            state[i[0]][i[1]] = player
+            minimax(state,+1,depth-1)
+            score[0],score[1] = i[0],i[1]
+            if score[2] > best[2]:
+                best = score
+    return best
+
+
+
+
+    
     
