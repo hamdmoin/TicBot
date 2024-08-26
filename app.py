@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from tictactoe import check_win, empty_cells, minimax
+from tictactoe import check_win, empty_cells, minimax,check_draw
 
 app = Flask(__name__)
 
@@ -27,6 +27,11 @@ def move(x, y):
                 message = "Computer wins!"
             return render_template('index.html', board=board, current_player=current_player,
                                    human_wins=human_wins, computer_wins=computer_wins, message=message)
+
+        else:
+            if check_draw(len(empty_cells(board)),board):
+                message = "Draw"
+
         current_player = -current_player
 
         if current_player == 1:
