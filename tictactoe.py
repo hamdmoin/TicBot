@@ -27,6 +27,13 @@ def empty_cells(state):
     """
     return [[x, y] for x, row in enumerate(state) for y, cell in enumerate(row) if cell == 0]
 
+def check_draw(depth,state):
+    if depth ==0:
+        if not check_win(+1,state) and not check_win(-1,state):
+            return True
+        else:
+            return False
+
 def gameover(state):
     """
     Returns True if the game is over (win or draw).
