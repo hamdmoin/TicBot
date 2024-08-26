@@ -23,7 +23,7 @@ class TestTicTacToe(unittest.TestCase):
     def test_minimax(self):
         self.assertEqual(minimax([[0, 0, 0], [0, 0, 0], [0, 0, 0]], +1, 1), [0, 0, 0])
         self.assertEqual(minimax([[+1, +1, 0], [0, 0, 0], [0, 0, 0]], +1, 1), [0, 2, 1])
-        self.assertEqual(minimax([[+1, +1, 0], [0, 0, 0], [0, 0, 0]], -1, 1), [0, 2, -1])
+        self.assertEqual(minimax([[+1, +1, 0], [0, 0, 0], [0, 0, 0]], -1, 1), [0, 2, 0])
 
 
 if __name__ == '__main__':

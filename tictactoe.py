@@ -80,3 +80,4 @@ def minimax(state, player, depth):
                 best = score
 
     return best
+
