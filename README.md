@@ -4,7 +4,7 @@ TicBot is a web-based Tic-Tac-Toe game where you can play against an AI opponent
 
 ## Developers
 
-- **Algorithm**: [noth3m](https://github.com/noth3m)
+- **Algorithm**: [hamdmoin](https://github.com/hamdmoin)
 - **Frontend & Backend**: [a3ro-dev](https://github.com/a3ro-dev)
 
 ## Project Overview
